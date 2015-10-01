@@ -12,7 +12,7 @@ class JuliaSet():
 
     def  iterate(self, z):  # This is the method for the class
         m = 0
-        while (abs(z) < 3) or (m < self.n):
+        while True:
             z = self.juliamap(z)
             m += 1
             if abs(z) > 2 :
@@ -23,18 +23,19 @@ class JuliaSet():
             
     def create_complexplane(self,d) :
         list1 = [ ]
-        i = -2
-        j = -2
-        while (i <= 2 and j <= 2-d):
-            j = round(i+d,3)
-            complexnumber = complex(i,j)
-            list1.append(complexnumber)
-            i=j
+        i = -2.0
+        while i <= 2.0 :
+            j = -2.0
+            while j <= 2.0 :
+                list1.append(complex(i,i))
+                j = j+d
+            i = i+d
         return list1    
             
     def set_spacing(self, d) : # This is the method for the class 
         self._d = d
-        self._complexplane = self.create_complexplane(d)
+        self._complexplane = self.create_complexplane(self._d)
+
           #  print self._complexplane  # to troubleshoot the code
    
     def generate(self) :
