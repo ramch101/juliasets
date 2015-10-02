@@ -5,6 +5,7 @@ class JuliaSet():
         self.n = n
         self._d = 0.001
         self.set = [ ]
+        self._complexplane = [ ]
     
     def juliamap(self, z) : # This is the method for the class 
         return (z**2 + self.c)
@@ -14,7 +15,7 @@ class JuliaSet():
         m = 0
         while True:
             z = self.juliamap(z)
-            m += 1
+            m = m+1
             if abs(z) > 2 :
                 return(m)
             elif m >= self.n :
@@ -27,16 +28,16 @@ class JuliaSet():
         while i <= 2.0 :
             j = -2.0
             while j <= 2.0 :
-                list1.append(complex(i,i))
+                list1.append(complex(i,j))
                 j = j+d
             i = i+d
-        return list1    
-            
+        return list1   
+    
+
     def set_spacing(self, d) : # This is the method for the class 
         self._d = d
         self._complexplane = self.create_complexplane(self._d)
-
-          #  print self._complexplane  # to troubleshoot the code
+        #print self._complexplane  # to troubleshoot the code
    
     def generate(self) :
         self.set_spacing(self._d)

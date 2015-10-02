@@ -1,4 +1,45 @@
-"class JuliaSet():\n    \n    def __init__(self, c, n=100): # This is the data for the class - \n        self.c = c     \n        self.n = n\n        self._d = 0.001\n        self.set = [ ]\n    \n    def juliamap(self, z) : # This is the method for the class \n        return (z**2 + self.c)\n    \n\n    def  iterate(self, z):  # This is the method for the class\n        m = 0\n        while True:\n            z = self.juliamap(z)\n            m += 1\n            if abs(z) > 2 :\n                return(m)\n            elif m >= self.n :\n                return(0)\n\n            \n    def create_complexplane(self,d) :\n        list1 = [ ]\n        i = -2.0\n        while i <= 2.0 :\n            j = -2.0\n            while j <= 2.0 :\n                list1.append(complex(i,i))\n                j = j+d\n            i = i+d\n        return list1    \n            \n    def set_spacing(self, d) : # This is the method for the class \n        self._d = d\n        self._complexplane = self.create_complexplane(self._d)\n\n          #  print self._complexplane  # to troubleshoot the code\n   \n    def generate(self) :\n        self.set_spacing(self._d)\n        for complex_number in self._complexplane:\n             self.set.append(self.iterate(complex_number))\n        return self.set\n\n    \n"
+"class JuliaSet():\n    \n    def __init__(self, c, n=100): # This is the data for the class - \n        self.c = c     \n        self.n = n\n        self._d = 0.001\n        self.set = [ ]\n        self._complexplane = [ ]\n    \n    def juliamap(self, z) : # This is the method for the class \n        return (z**2 + self.c)\n    \n\n    def  iterate(self, z):  # This is the method for the class\n        m = 0\n        while True:\n            z = self.juliamap(z)\n            m = m+1\n            if abs(z) > 2 :\n                return(m)\n            elif m >= self.n :\n                return(0)\n\n            \n    def create_complexplane(self,d) :\n        list1 = [ ]\n        i = -2.0\n        while i <= 2.0 :\n            j = -2.0\n            while j <= 2.0 :\n                list1.append(complex(i,j))\n                j = j+d\n            i = i+d\n        return list1   \n    \n\n    def set_spacing(self, d) : # This is the method for the class \n        self._d = d\n        self._complexplane = self.create_complexplane(self._d)\n        #print self._complexplane  # to troubleshoot the code\n   \n    def generate(self) :\n        self.set_spacing(self._d)\n        for complex_number in self._complexplane:\n             self.set.append(self.iterate(complex_number))\n        return self.set\n\n    \n"
+{"patch":[[[[0,"  i = i+"],[-1,"d"],[0,"\n       "]],824,824,17,16]],"time":1443761758871}
+{"patch":[[[[0,"  i = i+"],[1,"1"],[0,"\n       "]],824,824,16,17]],"time":1443761757164}
+{"patch":[[[[0,"j+d\n        "],[-1,"    "],[0,"i = i+1\n    "]],810,810,28,24]],"time":1443761640574}
+{"patch":[[[[0,"st1   \n    \n"],[1,"    list1 = [ ]\n        i = -2.0\n        while i <= 2.0 :\n            j = -4.0\n            while j <= 2.0 :\n                list1.append(complex(i,j))\n                j = j+1\n            i = i+1\n        return list1    \n            "],[0,"\n    def set"]],847,847,24,256]],"time":1443711175435}
+{"patch":[[[[0,"   \n"],[-1,"    list1 = [ ]\n        i = -2.0\n        while i <= 2.0 :\n            j = -4.0\n            while j <= 2.0 :\n                list1.append(complex(i,j))\n                j = j+1\n            i = i+1\n        return list1    \n"],[0,"    "]],855,855,228,8]],"time":1443711153241}
+{"patch":[[[[0,"list1   "],[-1,"\n   "],[0," \n      "]],845,845,20,16]],"time":1443711151187}
+{"patch":[[[[0,"mplex(i,"],[-1,"j"],[0,"))\n     "]],778,778,17,16]],"time":1443711113145}
+{"patch":[[[[0,"mplex(i,"],[1,"i"],[0,"))\n     "]],778,778,16,17]],"time":1443711111407}
+{"patch":[[[[0,"  i = i+"],[-1,"1"],[0,"\n       "]],820,820,17,16]],"time":1443710509091}
+{"patch":[[[[0,"  i = i+"],[1,"d"],[0,"\n       "]],820,820,16,17]],"time":1443710507077}
+{"patch":[[[[0,"j+d\n        "],[1,"  "],[0,"i = i+d\n    "]],810,810,24,26]],"time":1443710486313}
+{"patch":[[[[0,"d\n          "],[1," "],[0,"i = i+d\n    "]],812,812,24,25]],"time":1443710483635}
+{"patch":[[[[0,"\n           "],[1," "],[0,"i = i+d\n    "]],813,813,24,25]],"time":1443710479300}
+{"patch":[[[[0,"            "],[-1,"    "],[0,"list1.append"]],747,747,28,24],[[[0,"x(i,i))\n"],[-1,"    "],[0,"        "]],778,778,20,16]],"time":1443710365900}
+{"patch":[[[[0,"            "],[1,"   "],[0,"j = j+d\n    "]],786,786,24,27]],"time":1443710355119}
+{"patch":[[[[0,"0 :\n        "],[-1,"    "],[0,"j = -2.0\n   "]],693,693,28,24],[[[0,"   j = -2.0\n"],[-1,"    "],[0,"        whil"]],702,702,28,24],[[[0,"x(i,i))\n"],[1," "],[0,"        "]],770,770,16,17]],"time":1443710353175}
+{"patch":[[[[0,"0 :\n        "],[-1,"    "],[0,"list1.append"]],735,735,28,24]],"time":1443710343783}
+{"patch":[[[[0,"0 :\n        "],[1," "],[0,"list1.append"]],735,735,24,25]],"time":1443710341767}
+{"patch":[[[[0," :\n         "],[1,"      "],[0,"list1.append"]],736,736,24,30]],"time":1443710339774}
+{"patch":[[[[0,"            "],[1," "],[0,"list1.append"]],742,742,24,25]],"time":1443710337791}
+{"patch":[[[[0,"2.0\n        "],[1," "],[0,"while j <= 2"]],710,710,24,25]],"time":1443710335771}
+{"patch":[[[[0,".0\n         "],[1,"  "],[0,"while j <= 2"]],711,711,24,26]],"time":1443710333766}
+{"patch":[[[[0,"\n           "],[1," "],[0,"while j <= 2"]],713,713,24,25]],"time":1443710331764}
+{"patch":[[[[0,"0 :\n        "],[1,"   "],[0,"j = -2.0\n   "]],693,693,24,27]],"time":1443710298437}
+{"patch":[[[[0,"\n           "],[1," "],[0,"j = -2.0\n   "]],696,696,24,25]],"time":1443710255500}
+{"patch":[[[[0,"        "],[-1,"#"],[0,"print se"]],1022,1022,17,16]],"time":1443710041696}
+{"patch":[[[[0,"\n       "],[1,"#"],[0," print s"]],1021,1021,16,17]],"time":1443710005733}
+{"patch":[[[[0,"       #"],[1," "],[0," print s"]],1022,1022,16,17]],"time":1443710003735}
+{"patch":[[[[0,"\n       "],[1,"   "],[0,"#  print"]],1021,1021,16,19]],"time":1443710000809}
+{"patch":[[[[0,"xplane(self._d)\n"],[1,"\n"],[0,"          #  pri"]],1006,1006,32,33]],"time":1443709998808}
+{"patch":[[[[0,"self) :\n        "],[1," "],[0,"self.set_spacing"]],1110,1110,32,33]],"time":1443709715886}
+{"patch":[[[[0,"self) :\n        "],[1,"#"],[0," self.set_spacin"]],1110,1110,32,33]],"time":1443709713892}
+{"patch":[[[[0,"\n       "],[-1," "],[0,"# self.s"]],1117,1117,17,16]],"time":1443709532583}
+{"patch":[[[[0,"\n       "],[-1,"#"],[0," self.se"]],1117,1117,17,16]],"time":1443709528590}
+{"patch":[[[[0,"   m = m"],[-1,"+"],[0,"1\n      "]],461,461,17,16]],"time":1443709177273}
+{"patch":[[[[0,"    m = "],[-1,"m"],[0,"1\n      "]],460,460,17,16]],"time":1443709175268}
+{"patch":[[[[0,"      m "],[1,"+"],[0,"= 1\n    "]],458,458,16,17]],"time":1443709172354}
+{"patch":[[[[0,"lexplane = ["],[-1," "],[0,"]\n    \n    d"]],201,201,25,24]],"time":1443708757765}
+{"patch":[[[[0,"lane"],[-1," = []"],[0,"\n   "]],205,205,13,8]],"time":1443708755764}
+{"patch":[[[[0,"        "],[-1,"self._complexplane"],[0,"\n    \n  "]],183,183,34,16]],"time":1443708753763}
+{"patch":[[[[0,"t = [ ]\n"],[-1,"        \n"],[0,"    \n   "]],175,175,25,16]],"time":1443708751773}
 {"patch":[[[[0,"    "],[-1,"    "],[0,"j = j+d\n"],[-1,"    "],[0,"    "]],764,764,24,16]],"time":1443678582272}
 {"patch":[[[[0,"            "],[1,"  "],[0,"j = -2.0\n   "]],663,663,24,26]],"time":1443678437536}
 {"patch":[[[[0,"            "],[1," "],[0,"j = -2.0\n   "]],665,665,24,25]],"time":1443678435408}
